@@ -11,13 +11,15 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AccessLevel;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.experimental.FieldDefaults;
 
 @Entity
 @Data
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @FieldDefaults(makeFinal = false, level = AccessLevel.PROTECTED)
-public class Speaker implements Human{
+@EqualsAndHashCode(callSuper = true)
+public class Speaker extends Human implements Person{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

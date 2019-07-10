@@ -1,7 +1,15 @@
 package com.example.demo.entity;
 
-public interface Human {
+import javax.persistence.Version;
 
-    String getName();
+import io.leangen.graphql.annotations.types.GraphQLInterface;
+import lombok.Data;
+
+@Data
+@GraphQLInterface(implementationAutoDiscovery = true,name = "human")
+public class Human {
+
+	@Version
+    String version;
 
 }

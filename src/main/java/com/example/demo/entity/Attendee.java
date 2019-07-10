@@ -9,12 +9,14 @@ import javax.persistence.OneToOne;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Entity
 @Data
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @GraphQLFederationKey(field = "id")
-public class Attendee implements Human {
+@EqualsAndHashCode(callSuper = true)
+public class Attendee extends Human implements Person{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
